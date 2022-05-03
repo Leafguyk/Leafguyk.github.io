@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <style>
     body{
-        background-color: aqua;
+        background-color: #333;
     }
 </style>
 <html>
-    <h1>Hello World!</h1>
+    <body class="background">
+    <h1 class="main-text">안녕하세요</h1>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        let sentences=["Hello World!"];
+        const _sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+        async function typingAnimation(arg){
+            for (let i=0; i< arg.length; i++){
+                $('h1').text(arg.slice(0,i+1));
+                await _sleep(30)
+            }
+        }
+        typingAnimation("Hello World!")
+    </script>
+    </body>
 </html>
