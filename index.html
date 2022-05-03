@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <style>
     body{
-        background-color: #333;
+        background-color: rgb(0, 0, 0);
+    }
+    .green-text{
+        color:rgb(126, 255, 114);
+        opacity: .5;
+        font-family: 'Source Code Pro', monospace;
     }
 </style>
 <html>
     <body class="background">
-    <h1 class="main-text">안녕하세요</h1>
+    <h1 class="green-text"></h1>
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/animation.js"></script>
     <script>
-        let sentences=["Hello World!"];
-        const _sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
-        async function typingAnimation(arg){
-            for (let i=0; i< arg.length; i++){
-                $('h1').text(arg.slice(0,i+1));
-                await _sleep(30)
-            }
-        }
-        typingAnimation("Hello World!")
+        let a=["Hello World!","Nice to meet you","Who are you?"];
+        loopTypingAnimation(a);
     </script>
     </body>
 </html>
