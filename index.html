@@ -2,42 +2,32 @@
 
 <head>
     <style>
-        body {
-            font-family: Comic Sans MS
+        h2 {
+            color: aquamarine;
+            font-size: 100px;
         }
         
-        h1 {
-            font-size: 40px;
-        }
-        
-        table {
-            font-size: 20px;
-        }
-        
-        p {
-            font-size: 50px;
+        h3 {
+            color: aquamarine;
         }
     </style>
 </head>
 <html>
+<div id="nav-placeholder">
+</div>
 <center>
-    <h1>Game 2048</h1>
-    <table>
-        <p>0 0 0 0<br>0 0 0 0<br>0 0 0 0<br>0 0 0 0
-        </p>
-    </table>
-    <div>
-        <button id="up">up</button>
-    </div>
-    <div>
-        <button id="left">left</button>
-        <button id="right">right</button>
-    </div>
-    <div>
-        <button id="down">down</button>
-    </div>
+    <h2>
+        Welcome To The Web!
+    </h2>
+    <h3>
+        developed by Leafguyk
+    </h3>
 </center>
 
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
-<script src="/js/game.js" type="text/javascript"></script>
+<script>
+    $(function() {
+        $("#nav-placeholder").load("/html/navbar.html");
+    });
+</script>
