@@ -2,56 +2,6 @@
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/game.js"></script>
-    <script>
-        let game = Game2048();
-        function changeScreen(){
-            let gameboard=game.Board();
-            let x=0;
-            let y=0;
-            for (i of gameboard){
-                x=0;
-                for (j of i){
-                    $(`#${y}:nth-child(${x})`).text(gameboard[y][x]);
-                    x++;
-                }
-                y++;
-            }
-        }
-        $(document).ready(function() {
-            $("#up").click(function(){
-                game.upClick();
-                if (game.judgeEnd === true){
-                    alert("Game over!");
-                } else{
-                    game.addNum();
-                }
-            });
-            $("#right").click(function(){
-                game.rightClick();
-                if (game.judgeEnd === true){
-                    alert("Game over!");
-                } else{
-                    game.addNum();
-                }
-            });
-            $("#down").click(function(){
-                game.downClick();
-                if (game.judgeEnd === true){
-                    alert("Game over!");
-                } else{
-                    game.addNum();
-                }
-            });
-            $("#left").click(function(){
-                game.leftClick();
-                if (game.judgeEnd === true){
-                    alert("Game over!");
-                } else{
-                    game.addNum();
-                }
-            });
-        });
-    </script>
     <style>
     body {
         font-family: Comic Sans MS
@@ -69,30 +19,32 @@
     <center>
         <h1>Game 2048</h1>
         <table>
-            <tr id="0">
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr id="1">
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr id="2">
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr id="3">
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
+            <p>
+                <tr id="0">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr id="1">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr id="2">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr id="3">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </p>
         </table>
         <div>
             <button id="up">up</button>

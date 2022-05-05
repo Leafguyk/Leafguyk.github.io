@@ -3,20 +3,6 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
   }
-function changeScreen(){
-  var gameboard=game.Board();
-  var x=0;
-  var y=0;
-  console.log(gameboard);
-  for (var i of gameboard){
-      x=0;
-      for (var j of i){
-          $(`#${y}:nth-child(${x})`).text(j);
-          x++;
-      }
-      y++;
-  }
-}
 function range(start, end) {
 
     var arr = [];
@@ -211,42 +197,48 @@ class Game2048{
         return this.board;
     }
 }
+function changeScreen(){
+    var gameboard=game.Board();
+    var x=0;
+    var y=0;
+    for (var i of gameboard){
+        x=0;
+        for (var j of i){
+            $(`#${y}:nth-child(${x})`).text(j);
+            x++;
+        }
+        y++;
+    }
+}
 var game = new Game2048();
-$(document).ready(function() {
-    $("#up").click(async function(){
-        await game.upClick();
-        if (await game.judgeEnd() === true){
-            alert("Game over!");
-        } else{
-            await game.addNum();
-        }
-        await changeScreen();
-    });
-    $("#right").click(async function(){
-        await game.rightClick();
-        if (await game.judgeEnd() === true){
-            alert("Game over!");
-        } else{
-            await game.addNum();
-        }
-        await changeScreen();
-    });
-    $("#down").click(async function(){
-        await game.downClick();
-        if (await game.judgeEnd() === true){
-            alert("Game over!");
-        } else{
-            await game.addNum();
-        }
-        await changeScreen();
-    });
-    $("#left").click(async function(){
-        await game.leftClick();
-        if (await game.judgeEnd() === true){
-            alert("Game over!");
-        } else{
-            await game.addNum();
-        }
-        await changeScreen();
-    });
+
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.on("line", async function(line) {
+  if (line=="up"){
+      await game.upClick();
+  }else if (line=="right"){
+      await game.rightClick();
+  }else if (line=="down"){
+      await game.downClick();
+  }else if (line=="left"){
+      await game.leftClick();
+  }
+  if (await game.judgeEnd()==true){
+      console.log("Game over");
+      for (var i of game.Board()){
+        console.log(i);
+      }
+      rl.close();
+  }
+  await game.addNum();
+  for (var i of game.Board()){
+    console.log(i);
+  }
+}).on("close", function() {
+  process.exit();
 });
