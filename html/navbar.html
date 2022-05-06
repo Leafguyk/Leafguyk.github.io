@@ -11,11 +11,32 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/games/game2048.html">Games</a></li>
+                <li><a onclick="openNav()">Games</li>
                 <li><a href="#">About</a></li>
             </ul>
         </nav>
     </div>
 </header>
+<div id="myNav" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+        <a href="/games/game2048.html">Game 2048</a>
+    </div>
+
+</div>
 
 </html>
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+</script>
